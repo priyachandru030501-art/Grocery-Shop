@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Grocery-Shop">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
