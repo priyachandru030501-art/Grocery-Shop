@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-page {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+
+.navbar {
+  width: 100%;
+  padding: 18px 8%;
+  background: #126b45;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+.logo {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Links */
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ffd84d;
+}
+
+/* Toggle Button */
+
+.toggle-btn {
+  display: none;
+
+  background: transparent;
+  border: none;
+
+  color: white;
+  font-size: 30px;
+
+  cursor: pointer;
+}
+
+/* Hero */
+
+.hero {
+  min-height: 450px;
+
+  background:
+    linear-gradient(
+      rgba(0, 70, 40, 0.55),
+      rgba(0, 70, 40, 0.55)
+    ),
+    url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.hero-btn {
+  display: inline-block;
+
+  background: #ffd84d;
+  color: #126b45;
+
+  padding: 13px 30px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+  background: #0b3d29;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+footer p {
+  margin-top: 10px;
+  color: #d7e9df;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 15px 6%;
+    flex-wrap: wrap;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    margin-top: 15px;
+
+    background: #0b3d29;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+    text-align: center;
+  }
+
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
