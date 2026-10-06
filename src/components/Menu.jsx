@@ -1,10 +1,8 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import "../assets/style/Menu.css";
 
 function Menu() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   const vegetables = [
     {
       name: "Fresh Tomato",
@@ -28,13 +26,13 @@ function Menu() {
 
   const fruits = [
     {
-      name: "Apple",
+      name: "Fresh Apple",
       price: 180,
       image:
         "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80",
     },
     {
-      name: "Orange",
+      name: "Fresh Orange",
       price: 120,
       image:
         "https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&q=80",
@@ -89,85 +87,88 @@ function Menu() {
     },
   ];
 
-  const showProducts = (products) => (
-    <div className="product-grid">
-      {products.map((product, index) => (
-        <div className="product-card" key={index}>
-          <img src={product.image} alt={product.name} />
+  const showProducts = (products) => {
+    return (
+      <div className="product-grid">
+        {products.map((product, index) => (
+          <div className="product-card" key={index}>
+            <div className="product-image">
+              <img src={product.image} alt={product.name} />
+            </div>
 
-          <div className="product-info">
-            <h3>{product.name}</h3>
-            <p>₹{product.price}</p>
-            <button>Add to Cart</button>
+            <div className="product-info">
+              <h3>{product.name}</h3>
+              <p className="price">₹{product.price}</p>
+
+              <button>Add to Cart</button>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="menu-page">
 
       {/* Navbar */}
       <nav className="navbar">
+        <div className="logo">🥬 FRESHORA</div>
 
-        <div className="logo">
-          🥬 FRESHORA
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/menu" className="active">Menu</Link>
+          <Link to="/cart">Cart 🛒</Link>
+          <Link to="/contact">Contact</Link>
         </div>
-
-        <button
-          className="toggle-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </button>
-
-        <div className={`nav-links ${menuOpen ? "show" : ""}`}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-
-          <Link to="/menu" onClick={() => setMenuOpen(false)}>
-            Menu
-          </Link>
-
-          <Link to="/cart" onClick={() => setMenuOpen(false)}>
-            Cart 🛒
-          </Link>
-
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </Link>
-        </div>
-
       </nav>
 
       {/* Hero */}
       <section className="menu-hero">
-        <h1>Our Fresh Menu</h1>
+        <div>
+          <p>FRESH • HEALTHY • NATURAL</p>
+          <h1>Our Fresh Menu</h1>
+          <span>Choose your favourite groceries</span>
+        </div>
       </section>
 
       {/* Vegetables */}
       <section className="products-section">
-        <h2>🥕 Vegetables</h2>
+        <h2>🥕 Fresh Vegetables</h2>
+        <p className="section-text">
+          Fresh vegetables directly for your kitchen
+        </p>
+
         {showProducts(vegetables)}
       </section>
 
       {/* Fruits */}
       <section className="products-section light">
-        <h2>🍎 Fruits</h2>
+        <h2>🍎 Fresh Fruits</h2>
+        <p className="section-text">
+          Sweet and healthy fruits for your family
+        </p>
+
         {showProducts(fruits)}
       </section>
 
       {/* Dairy */}
       <section className="products-section">
-        <h2>🥛 Dairy</h2>
+        <h2>🥛 Dairy Products</h2>
+        <p className="section-text">
+          Fresh dairy products every day
+        </p>
+
         {showProducts(dairy)}
       </section>
 
       {/* Juices */}
       <section className="products-section light">
-        <h2>🧃 Juices</h2>
+        <h2>🧃 Fresh Juices</h2>
+        <p className="section-text">
+          Refreshing natural juices
+        </p>
+
         {showProducts(juices)}
       </section>
 
